@@ -1,0 +1,247 @@
+======================================================
+DOKUMENTASI TEKNIS
+SIAP PAJAK
+(Sistem Informasi Analisis & Pra-isi Pajak Penghasilan)
+======================================================
+
+1. TECH STACK
+------------------------------------------------------
+Backend Framework   : Laravel (PHP)
+Basis Data          : MySQL
+ORM                 : Eloquent
+Autentikasi         : Laravel Breeze / Fortify
+Frontend            : Blade Template + Tailwind CSS
+Antarmuka CLI       : Laravel Artisan Command
+Penjadwalan Otomatis: Laravel Task Scheduler
+Data Uji/Dummy      : Laravel Factory & Seeder
+
+
+2. ARSITEKTUR SISTEM (LAYERED ARCHITECTURE)
+------------------------------------------------------
+Presentation Layer
+   -> Blade View, Route
+   -> Menampilkan antarmuka ke pengguna
+
+Application Layer
+   -> Controller
+   -> Menerima request, mengatur alur proses
+
+Business Logic Layer
+   -> Service Class (PPhCalculatorService)
+   -> Berisi logika inti perhitungan pajak, dipanggil
+      dari Controller (web) maupun Command (CLI) agar
+      tidak ada duplikasi logika
+
+Data Access Layer
+   -> Eloquent Model
+   -> Interaksi dengan basis data
+
+Infrastructure Layer
+   -> Artisan Command, Scheduler
+   -> Otomatisasi & antarmuka non-web
+
+
+3. STRUKTUR DIREKTORI (RINGKAS)
+------------------------------------------------------
+app/Console/Commands/
+   - SeedDummyPenghasilan.php
+   - HitungPPhOtomatis.php
+   - LaporanPPh.php
+
+app/Models/
+   - User.php
+   - DataPenghasilan.php
+   - PPhCalculation.php
+   - StatusHistory.php
+
+app/Services/
+   - PPhCalculatorService.php
+
+app/Http/Controllers/
+   - PPhController.php
+   - AdminController.php
+
+database/migrations/
+database/seeders/
+routes/web.php
+
+
+4. SKEMA BASIS DATA
+------------------------------------------------------
+Tabel: users
+   id (bigint, PK)
+   name (varchar)
+   email (varchar)
+   role (enum: wajib_pajak / admin)
+   password (varchar)
+
+Tabel: data_penghasilan
+   id (bigint, PK)
+   user_id (bigint, FK -> users.id)
+   sumber (varchar)
+   jumlah (decimal)
+   periode (date)
+   terverifikasi (boolean)
+
+Tabel: pph_calculations
+   id (bigint, PK)
+   user_id (bigint, FK -> users.id)
+   total_penghasilan (decimal)
+   ptkp (decimal)
+   penghasilan_kena_pajak (decimal)
+   pph_terutang (decimal)
+   status (enum: pra_isi / dikonfirmasi / dikoreksi)
+
+Tabel: status_history
+   id (bigint, PK)
+   pph_calculation_id (bigint, FK -> pph_calculations.id)
+   status_lama (varchar)
+   status_baru (varchar)
+   diubah_oleh (bigint, FK -> users.id)
+   keterangan (text)
+
+Relasi:
+   users (1) -> (N) data_penghasilan
+   users (1) -> (N) pph_calculations
+   pph_calculations (1) -> (N) status_history
+
+
+5. LOGIKA PERHITUNGAN PPh (PPhCalculatorService)
+------------------------------------------------------
+Method 1: hitungPTKP(statusKawin, jumlahTanggungan)
+   - Mengembalikan nilai PTKP sesuai status:
+     TK/0 = 54.000.000
+     K/0  = 58.500.000
+     K/1  = 63.000.000
+     K/2  = 67.500.000
+     K/3  = 72.000.000
+
+Method 2: hitungPenghasilanKenaPajak(totalPenghasilan, ptkp)
+   - Rumus: totalPenghasilan - ptkp
+   - Jika hasil negatif, dianggap 0 (tidak kena pajak)
+
+Method 3: hitungPPhProgresif(penghasilanKenaPajak)
+   - Menghitung berjenjang sesuai lapisan tarif:
+     Lapisan 1: 0 - 60.000.000            -> 5%
+     Lapisan 2: >60.000.000 - 250.000.000 -> 15%
+     Lapisan 3: >250.000.000 - 500.000.000-> 25%
+     Lapisan 4: >500.000.000 - 5.000.000.000 -> 30%
+     Lapisan 5: >5.000.000.000            -> 35%
+   - Setiap lapisan dihitung terpisah (bukan flat rate),
+     lalu dijumlahkan menjadi total PPh terutang
+
+Contoh kode pseudocode:
+   function hitungPPhProgresif(pkp):
+       sisa = pkp
+       total = 0
+       lapisan = [
+         [60000000, 0.05],
+         [190000000, 0.15],   // batas atas - batas bawah
+         [250000000, 0.25],
+         [4500000000, 0.30],
+         [INF, 0.35]
+       ]
+       for [batas, tarif] in lapisan:
+           if sisa <= 0: break
+           kena = min(sisa, batas)
+           total += kena * tarif
+           sisa -= kena
+       return total
+
+Contoh perhitungan nyata:
+   Input: TK/0, penghasilan bruto = 80.000.000
+   PTKP = 54.000.000
+   PKP  = 80.000.000 - 54.000.000 = 26.000.000
+   PPh  = 5% x 26.000.000 = 1.300.000
+
+
+6. ALUR PROSES (SEQUENCE LOGIC)
+------------------------------------------------------
+1. Command "pph:import-data-dummy" -> generate data
+   penghasilan dummy (Faker) -> simpan ke
+   data_penghasilan
+
+2. Command "pph:hitung-otomatis" (manual/terjadwal
+   via Scheduler) -> ambil data_penghasilan yang
+   belum dihitung -> panggil PPhCalculatorService ->
+   simpan hasil ke pph_calculations dengan
+   status = "pra_isi"
+
+3. User login (PPhController) -> tampilkan data
+   pph_calculations milik user tsb
+
+4. User klik "Konfirmasi":
+   -> update status jadi "dikonfirmasi"
+   -> insert baris baru ke status_history
+      (status_lama: pra_isi, status_baru: dikonfirmasi)
+
+5. User klik "Ajukan Koreksi":
+   -> update status jadi "dikoreksi"
+   -> insert baris baru ke status_history
+   -> admin menerima data untuk verifikasi ulang
+
+6. Command "pph:laporan" -> query agregat
+   (COUNT per status, SUM pph_terutang) -> cetak ke
+   terminal
+
+
+7. DAFTAR PERINTAH CLI (ARTISAN COMMAND)
+------------------------------------------------------
+php artisan pph:import-data-dummy
+   -> generate data penghasilan simulasi (Faker)
+
+php artisan pph:hitung-otomatis
+   -> jalankan perhitungan PPh untuk semua data yang
+      belum dihitung, panggil PPhCalculatorService
+
+php artisan pph:laporan
+   -> tampilkan ringkasan statistik di terminal:
+      total wajib pajak, total PPh terutang, jumlah
+      per status (pra_isi/dikonfirmasi/dikoreksi)
+
+
+8. ROUTING (ENDPOINT WEB)
+------------------------------------------------------
+GET  /dashboard                  -> dashboard sesuai role   [auth]
+GET  /pph/{id}                   -> detail perhitungan PPh  [auth]
+POST /pph/{id}/konfirmasi        -> konfirmasi data pra-isi [auth]
+POST /pph/{id}/koreksi           -> ajukan koreksi          [auth]
+GET  /admin/data                 -> kelola seluruh data     [auth, role:admin]
+POST /admin/verifikasi/{id}      -> verifikasi koreksi      [auth, role:admin]
+
+
+9. KEAMANAN & AKSES (NON-FUNGSIONAL)
+------------------------------------------------------
+- Role-based access control: wajib_pajak vs admin
+- Middleware "auth" pada seluruh route yang butuh login
+- Middleware "role:admin" khusus route administratif
+- Password di-hash (bcrypt bawaan Laravel)
+- Validasi input pada setiap form (Request Validation
+  Laravel) sebelum data disimpan ke database
+
+
+10. RENCANA PENGUJIAN TEKNIS
+------------------------------------------------------
+Test 1: Input data penghasilan baru
+   -> Expected: data tersimpan, status "belum dihitung"
+
+Test 2: Jalankan pph:hitung-otomatis
+   -> Expected: pph_terutang sesuai rumus PTKP + tarif
+      progresif (bandingkan dengan hitungan manual)
+
+Test 3: Konfirmasi data pra-isi
+   -> Expected: status berubah, status_history bertambah
+      1 baris baru
+
+Test 4: Ajukan koreksi
+   -> Expected: status berubah jadi "dikoreksi", admin
+      bisa melihat data tsb di dashboard admin
+
+Test 5: Akses admin oleh user role wajib_pajak
+   -> Expected: ditolak (403) oleh middleware role:admin
+
+
+======================================================
+Disusun sebagai bagian dari proyek sekolah (RPL)
+Fokus: Aspek Teknis Sistem
+======================================================

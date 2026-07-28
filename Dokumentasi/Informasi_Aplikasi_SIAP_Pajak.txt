@@ -1,0 +1,145 @@
+======================================================
+INFORMASI APLIKASI
+SIAP PAJAK
+(Sistem Informasi Analisis & Pra-isi Pajak Penghasilan)
+======================================================
+
+1. TENTANG APLIKASI
+------------------------------------------------------
+SIAP Pajak adalah aplikasi berbasis web yang membantu
+masyarakat (wajib pajak orang pribadi) menghitung dan
+melaporkan Pajak Penghasilan (PPh) dengan lebih mudah.
+
+Alih-alih mengisi form pelaporan pajak dari nol, sistem
+akan menghitung otomatis estimasi PPh terutang
+berdasarkan data penghasilan pengguna. Pengguna cukup
+meninjau hasilnya, lalu memilih KONFIRMASI jika sudah
+benar, atau AJUKAN KOREKSI jika ada data yang kurang
+tepat.
+
+Konsep ini disebut "Pra-isi & Konfirmasi" (pre-fill &
+confirm) — sejalan dengan arah kebijakan modernisasi
+administrasi pajak di Indonesia (mirip pendekatan SPT
+pra-isi yang mulai diterapkan DJP).
+
+
+2. MASALAH YANG DIJAWAB
+------------------------------------------------------
+- Sistem pajak Indonesia menganut prinsip
+  self-assessment: wajib pajak menghitung dan melapor
+  sendiri, dan ini sering dianggap rumit oleh
+  masyarakat awam.
+- Besaran PPh berbeda-beda untuk tiap orang, tergantung
+  penghasilan, status keluarga (PTKP), dan tarif
+  progresif — sehingga tidak bisa disamaratakan atau
+  dihilangkan begitu saja pelaporannya.
+- Rendahnya kepatuhan wajib pajak tetap jadi masalah
+  utama meski sistem digital (Coretax) sudah diterapkan
+  penuh, menandakan kerumitan PROSES-lah yang perlu
+  disederhanakan, bukan sekadar didigitalkan.
+
+
+3. TUJUAN APLIKASI
+------------------------------------------------------
+- Mengurangi beban manual dalam proses pelaporan PPh.
+- Menjaga akurasi dan keadilan perhitungan pajak (tanpa
+  menghilangkan prinsip self-assessment).
+- Memberi kendali akhir kepada wajib pajak lewat
+  mekanisme konfirmasi dan koreksi data.
+
+
+4. PENGGUNA APLIKASI
+------------------------------------------------------
+a) Wajib Pajak (masyarakat/karyawan)
+   - Melihat hasil pra-isi perhitungan PPh miliknya
+   - Mengonfirmasi atau mengajukan koreksi data
+   - Melihat riwayat status pengajuan
+
+b) Admin / Petugas
+   - Memantau seluruh data pengajuan
+   - Memverifikasi data yang dikoreksi
+   - Melihat statistik & mencetak laporan
+
+
+5. FITUR UTAMA
+------------------------------------------------------
+- Perhitungan PPh otomatis (berdasarkan PTKP dan tarif
+  progresif)
+- Halaman tinjau & konfirmasi hasil pra-isi
+- Jalur koreksi manual jika data belum akurat
+- Riwayat/jejak audit setiap perubahan status
+- Dashboard admin untuk memantau seluruh pengajuan
+- Perintah CLI (command line) untuk simulasi data,
+  perhitungan otomatis, dan pencetakan laporan
+
+
+6. CARA KERJA SINGKAT
+------------------------------------------------------
+1. Data penghasilan wajib pajak masuk ke sistem
+2. Sistem otomatis menghitung PPh terutang
+3. Hasil ditampilkan sebagai data "pra-isi"
+4. Wajib pajak meninjau data tersebut
+5. Jika benar -> Konfirmasi
+   Jika tidak -> Ajukan Koreksi (ditinjau ulang oleh
+   admin)
+6. Setiap perubahan status dicatat sebagai riwayat
+
+
+7. DASAR PERHITUNGAN PAJAK
+------------------------------------------------------
+a) PTKP (Penghasilan Tidak Kena Pajak) - contoh nilai:
+   - TK/0 (belum kawin, tanpa tanggungan): Rp54.000.000
+   - K/0 (kawin, tanpa tanggungan)      : Rp58.500.000
+   - K/1 (kawin, 1 tanggungan)          : Rp63.000.000
+   - K/2 (kawin, 2 tanggungan)          : Rp67.500.000
+   - K/3 (kawin, 3 tanggungan)          : Rp72.000.000
+
+b) Tarif Progresif PPh Orang Pribadi:
+   - Rp0 - Rp60.000.000                 : 5%
+   - >Rp60.000.000 - Rp250.000.000      : 15%
+   - >Rp250.000.000 - Rp500.000.000     : 25%
+   - >Rp500.000.000 - Rp5.000.000.000   : 30%
+   - >Rp5.000.000.000                   : 35%
+
+c) Contoh perhitungan:
+   Wajib pajak TK/0, penghasilan Rp80.000.000/tahun
+   Penghasilan Kena Pajak = 80.000.000 - 54.000.000
+                           = Rp26.000.000
+   PPh Terutang = 5% x 26.000.000 = Rp1.300.000
+
+
+8. TEKNOLOGI YANG DIGUNAKAN
+------------------------------------------------------
+- Backend        : Laravel (PHP)
+- Basis Data     : MySQL
+- Autentikasi    : Laravel Breeze/Fortify
+- Antarmuka Web  : Blade Template + Tailwind CSS
+- Antarmuka CLI  : Laravel Artisan Command
+- Data Uji       : Laravel Factory & Seeder (Faker)
+
+
+9. BATASAN APLIKASI (SAAT INI)
+------------------------------------------------------
+- Merupakan prototipe/simulasi edukasi, belum
+  terintegrasi resmi dengan sistem DJP/Coretax
+- Data yang digunakan bersifat simulasi (dummy), bukan
+  data wajib pajak sesungguhnya
+- Hanya mencakup PPh Orang Pribadi (belum mencakup
+  Badan Usaha atau skema PPh Final UMKM)
+
+
+10. NILAI TAMBAH BAGI MASYARAKAT
+------------------------------------------------------
+- Tidak perlu menghitung pajak secara manual
+- Proses pelaporan menjadi lebih singkat: cukup tinjau
+  dan konfirmasi
+- Tetap ada jalur koreksi jika ada kesalahan data,
+  sehingga masyarakat tetap punya kendali penuh
+- Transparansi lebih baik lewat riwayat status yang
+  bisa dipantau kapan saja
+
+
+======================================================
+Disusun sebagai bagian dari proyek sekolah (RPL)
+Topik: Sistem Perpajakan Indonesia
+======================================================
