@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profil - SIAP Pajak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#735c00",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "inverse-on-surface": "#f0f1f2",
+                        "text-main": "#191C1D",
+                        "error-red": "#BA1A1A",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#76f4e0",
+                        "tertiary-fixed-dim": "#e3c466",
+                        "inverse-surface": "#2e3132",
+                        "text-muted": "#43474F",
+                        "surface": "#f8f9fa",
+                        "on-secondary-fixed": "#00201c",
+                        "secondary-fixed": "#79f7e3",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#4e3e00",
+                        "outline": "#747781",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#002d62",
+                        "on-primary-container": "#7796d1",
+                        "on-tertiary-fixed": "#231b00",
+                        "secondary-fixed-dim": "#59dbc7",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#001b3f",
+                        "border-subtle": "#E9ECEF",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#ffe085",
+                        "on-surface-variant": "#43474f",
+                        "primary": "#00193c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#006f63",
+                        "inverse-primary": "#abc7ff",
+                        "surface-container": "#edeeef",
+                        "secondary": "#006b5f",
+                        "outline-variant": "#c4c6d1",
+                        "surface-white": "#FFFFFF",
+                        "on-primary-fixed-variant": "#24467c",
+                        "surface-tint": "#3e5e95",
+                        "tertiary-container": "#c6a94e",
+                        "surface-container-highest": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#abc7ff",
+                        "surface-bright": "#f8f9fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Mobile TopNavBar -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile h-20 bg-surface-white border-b border-border-subtle fixed top-0 z-50">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">SIAP Pajak</div>
+<div class="flex items-center gap-4">
+<button class="text-primary font-title-md text-title-md">Login</button>
+<button class="text-primary font-title-md text-title-md border border-primary px-4 py-2 rounded">Daftar</button>
+</div>
+</header>
+<!-- Desktop SideNavBar -->
+<aside class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-surface-white border-r border-border-subtle py-6 z-40">
+<div class="px-6 mb-8 flex items-center gap-4">
+<img alt="Garuda Emblem" class="w-10 h-10 object-contain" data-alt="A small, stylized Garuda emblem representing the Indonesian government. The emblem is rendered in flat, modern vector style with subtle gold accents against a pristine white background. It projects official authority and digital readiness within a minimalist administrative UI context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb2XG1hvcg69IwIXAD3nTj9ogXE2yPaeR41fcW0L0ThMR7OkljIRJuj0w45mGDGMVaK_7RIJcueBiGs4adLjIstNJec7-XryBlml_IzdltaBVBSCSG7aZZIpWkDwa-uYf-0yXH37_hFpMLF6Qt3O44uBFSlmyzzcHKAUpUVGh_A0qhxgkiATukLwLB1UcHJhkYWfK_I0U9KAQW-p0ZDSBsxuDo34uH382RoGFFV4_vJ4ICpqq6dHSxTw"/>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary">SIAP Pajak</div>
+<div class="text-body-sm text-on-surface-variant">Portal Resmi Perpajakan</div>
+</div>
+</div>
+<div class="px-6 mb-6">
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-3 rounded-DEFAULT hover:bg-on-primary-fixed-variant transition-colors">Buat Laporan Baru</button>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Lapor SPT</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">Riwayat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg mx-2 transition-transform scale-95 opacity-80" href="#">
+<span class="material-symbols-outlined fill" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<div class="px-4 mt-auto border-t border-border-subtle pt-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Bantuan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-24 md:pt-0 pb-20 md:pb-0 min-h-screen flex flex-col">
+<div class="flex-1 max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<div class="mb-8">
+<h1 class="font-display-lg text-display-lg text-primary mb-2 hidden md:block">Pengaturan Profil</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 md:hidden">Pengaturan Profil</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Kelola informasi pribadi, keamanan akun, dan preferensi notifikasi Anda.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Personal Information Column -->
+<div class="lg:col-span-2 flex flex-col gap-gutter">
+<!-- Identity Card -->
+<section class="bg-surface-white border border-border-subtle rounded-xl p-6 md:p-8">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="badge">badge</span>
+<h2 class="font-title-md text-title-md text-primary">Informasi Pribadi</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">Nama Lengkap</label>
+<input class="w-full bg-surface-white border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-text-main focus:border-primary focus:border-2 focus:outline-none transition-all" type="text" value="Budi Santoso"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">NIK / NPWP</label>
+<div class="w-full bg-surface-container-low border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface-variant cursor-not-allowed flex justify-between items-center">
+<span>3171234567890123</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">Email</label>
+<input class="w-full bg-surface-white border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-text-main focus:border-primary focus:border-2 focus:outline-none transition-all" type="email" value="budi.santoso@email.com"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">Nomor Telepon</label>
+<input class="w-full bg-surface-white border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-text-main focus:border-primary focus:border-2 focus:outline-none transition-all" type="tel" value="+62 812-3456-7890"/>
+</div>
+</div>
+</section>
+<!-- Preferences Card -->
+<section class="bg-surface-white border border-border-subtle rounded-xl p-6 md:p-8">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="tune">tune</span>
+<h2 class="font-title-md text-title-md text-primary">Preferensi</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">Bahasa Notifikasi</label>
+<select class="w-full bg-surface-white border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-text-main focus:border-primary focus:border-2 focus:outline-none transition-all appearance-none">
+<option value="id">Bahasa Indonesia</option>
+<option value="en">English</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-muted">Format Dokumen Default</label>
+<select class="w-full bg-surface-white border border-border-subtle rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-text-main focus:border-primary focus:border-2 focus:outline-none transition-all appearance-none">
+<option value="pdf">PDF (Disarankan)</option>
+<option value="xml">XML Data</option>
+</select>
+</div>
+</div>
+</section>
+</div>
+<!-- Security Column -->
+<div class="flex flex-col gap-gutter">
+<!-- Security Card -->
+<section class="bg-surface-white border border-border-subtle rounded-xl p-6 md:p-8 h-full">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield">shield</span>
+<h2 class="font-title-md text-title-md text-primary">Keamanan Akun</h2>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Password Section -->
+<div class="border-b border-border-subtle pb-6">
+<h3 class="font-body-md text-body-md font-semibold text-text-main mb-2">Kata Sandi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Terakhir diubah: 3 bulan lalu</p>
+<button class="w-full bg-surface-white border border-primary text-primary font-title-md text-title-md py-2 rounded-DEFAULT hover:bg-surface-container-low transition-colors">Ubah Kata Sandi</button>
+</div>
+<!-- 2FA Section -->
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-body-md text-body-md font-semibold text-text-main">Autentikasi Dua Faktor (2FA)</h3>
+<div class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded font-label-md text-label-md text-xs">Aktif</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Meningkatkan keamanan akun Anda dengan kode verifikasi saat login.</p>
+<button class="w-full bg-surface-white border border-outline text-text-muted font-title-md text-title-md py-2 rounded-DEFAULT hover:bg-surface-container-low transition-colors">Kelola 2FA</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="mt-8 flex justify-end pt-6 border-t border-border-subtle">
+<button class="bg-secondary text-on-secondary font-title-md text-title-md px-8 py-3 rounded-DEFAULT hover:bg-on-secondary-container transition-colors shadow-sm">Simpan Perubahan</button>
+</div>
+</div>
+<!-- Desktop Footer -->
+<footer class="w-full py-12 px-margin-desktop flex flex-col items-center gap-4 bg-primary mt-auto hidden md:flex">
+<div class="font-title-md text-title-md text-on-primary">SIAP Pajak</div>
+<div class="flex gap-6">
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Kebijakan Privasi</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Syarat &amp; Ketentuan</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Peta Situs</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Kontak</a>
+</div>
+<div class="font-body-sm text-body-sm text-surface-variant opacity-80">© 2024 Direktorat Jenderal Pajak. Republik Indonesia.</div>
+</footer>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-white border-t border-border-subtle flex justify-around items-center h-16 pb-safe z-50">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-[10px]">Lapor</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-[10px]">Riwayat</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-primary border-t-2 border-primary" href="#">
+<span class="material-symbols-outlined fill" data-icon="person">person</span>
+<span class="font-label-md text-[10px] font-bold">Profil</span>
+</a>
+</nav>
+</body></html>

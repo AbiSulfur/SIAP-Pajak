@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIAP Pajak - Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "text-main": "#191C1D",
+                        "surface-white": "#FFFFFF",
+                        "error-red": "#BA1A1A",
+                        "tertiary": "#735c00",
+                        "on-secondary-container": "#006f63",
+                        "tertiary-container": "#c6a94e",
+                        "error-container": "#ffdad6",
+                        "border-subtle": "#E9ECEF",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#edeeef",
+                        "on-primary": "#ffffff",
+                        "secondary": "#006b5f",
+                        "on-primary-container": "#7796d1",
+                        "on-surface-variant": "#43474f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c6d1",
+                        "inverse-primary": "#abc7ff",
+                        "primary-container": "#002d62",
+                        "on-tertiary-container": "#4e3e00",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#3e5e95",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#59dbc7",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#005047",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "text-muted": "#43474F",
+                        "on-secondary-fixed": "#00201c",
+                        "outline": "#747781",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#abc7ff",
+                        "primary-fixed": "#d7e2ff",
+                        "secondary-fixed": "#79f7e3",
+                        "tertiary-fixed": "#ffe085",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#e3c466",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary-fixed": "#001b3f",
+                        "primary": "#00193c",
+                        "inverse-surface": "#2e3132",
+                        "on-surface": "#191c1d",
+                        "on-background": "#191c1d",
+                        "on-primary-fixed-variant": "#24467c",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary-container": "#76f4e0",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border: 1px solid theme('colors.border-subtle'); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface-white border-b border-border-subtle flat no shadows docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary">SIAP Pajak</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-primary border-b-2 border-primary font-bold pb-1 hover:bg-surface-container-low transition-colors font-title-md text-title-md" href="#">Beranda</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-title-md text-title-md" href="#">Tentang Kami</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-title-md text-title-md" href="#">Layanan</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-title-md text-title-md" href="#">Bantuan</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary font-label-md text-label-md px-4 py-2 hover:bg-surface-container-low transition-colors rounded">Login</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded hover:opacity-90 transition-opacity">Daftar</button>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-primary">
+<img alt="SIAP Pajak Hero Banner" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida/AP1WRLswaz7CThOTaHCuqMVkqiK2wKww_DiLJHAKsnDC_TbTptzVLnuCV-9fwlgruLxXRNA_vrP1zDcioZa2YpJC2ncPzitU2xB2LzuTPyLhjjNeGF8l6L2rrAOuOIaWfJwsFEREMgUZrDMXiAnjVhdYsPjlgvhFDHPcjPV9nmTCC6ZasAG0QKl-AkutsZ9LGuDHe9_3nqUdtr7PUmbXmnaN_irNUPYurOrd8cJ5D8NDnAF6eIE8NYovaCE2KTlu"/>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center gap-gutter w-full">
+<div class="md:w-1/2 flex flex-col gap-6 text-on-primary">
+<span class="inline-block px-3 py-1 bg-surface-white/10 backdrop-blur-sm rounded-full font-label-md text-label-md uppercase tracking-wider w-fit border border-surface-white/20">Portal Resmi Perpajakan</span>
+<h1 class="font-display-lg text-display-lg">Lapor Pajak Penghasilan Jadi Lebih Mudah</h1>
+<p class="font-body-md text-body-md text-on-primary/90 max-w-lg">Hitung Otomatis, Tinggal Konfirmasi. Sistem informasi administrasi perpajakan yang dirancang untuk efisiensi dan transparansi.</p>
+<div class="flex gap-4 mt-4">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-6 py-3 rounded hover:bg-secondary/90 transition-colors">Lapor Sekarang</button>
+<button class="bg-transparent border border-on-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded hover:bg-on-primary/10 transition-colors">Panduan Pengguna</button>
+</div>
+</div>
+<div class="hidden md:flex md:w-1/2 justify-end relative">
+<!-- Decorative abstract tax document -->
+<div class="w-80 h-96 bg-surface-white rounded-xl shadow-2xl relative p-6 flex flex-col gap-4 transform rotate-3">
+<div class="w-1/3 h-4 bg-surface-container rounded"></div>
+<div class="w-3/4 h-8 bg-primary-container/10 rounded"></div>
+<div class="w-full h-2 bg-surface-container rounded mt-4"></div>
+<div class="w-full h-2 bg-surface-container rounded"></div>
+<div class="w-5/6 h-2 bg-surface-container rounded"></div>
+<div class="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary rounded-full flex items-center justify-center border-4 border-surface-white shadow-lg">
+<span class="material-symbols-outlined text-on-secondary text-5xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Angular Accent -->
+<div class="absolute bottom-0 left-0 w-full h-16 bg-surface" style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"></div>
+</section>
+<!-- Service Overview (Bento Grid) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Layanan Digital Terpadu</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Inovasi teknologi untuk mempermudah proses pelaporan dan pengelolaan pajak Anda secara mandiri, aman, dan efisien.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pre-fill -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded bg-primary-container/10 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Kalkulasi Otomatis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sistem kami secara otomatis mengisi data formulir pajak (pre-populated data) berdasarkan rekam jejak finansial yang terintegrasi, meminimalkan kesalahan input manual.</p>
+</div>
+<!-- Digital Confirmation -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded bg-secondary/10 flex items-center justify-center text-secondary mb-2">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Konfirmasi Digital</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tinjau, setujui, dan kirim laporan pajak Anda hanya dengan beberapa klik. Pengesahan menggunakan otentikasi digital yang sah secara hukum.</p>
+</div>
+<!-- High Security -->
+<div class="glass-card p-8 rounded-xl flex flex-col gap-4 hover:border-primary transition-colors md:col-span-1 lg:col-span-1">
+<div class="w-12 h-12 rounded bg-tertiary-container/20 flex items-center justify-center text-tertiary mb-2">
+<span class="material-symbols-outlined text-3xl">shield_lock</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary">Keamanan Tingkat Tinggi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Data finansial Anda dilindungi oleh enkripsi standar militer dan infrastruktur server nasional yang diawasi ketat selama 24/7.</p>
+</div>
+</div>
+</section>
+<!-- Real-time Statistics -->
+<section class="bg-surface-white border-y border-border-subtle py-16">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border-subtle">
+<div class="flex flex-col gap-2 py-4 md:py-0">
+<span class="font-display-lg text-display-lg text-primary">12.5M+</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Wajib Pajak Terdaftar</span>
+</div>
+<div class="flex flex-col gap-2 py-4 md:py-0">
+<span class="font-display-lg text-display-lg text-secondary">98%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Laporan Tepat Waktu</span>
+</div>
+<div class="flex flex-col gap-2 py-4 md:py-0">
+<span class="font-display-lg text-display-lg text-primary">2.4M</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">SPT Diproses Bulan Ini</span>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="md:w-1/2 flex flex-col gap-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">Proses Pelaporan yang Transparan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Kami telah merampingkan proses administrasi yang rumit menjadi langkah-langkah linier yang mudah diikuti oleh semua kalangan.</p>
+<div class="flex flex-col gap-8 mt-6 relative">
+<!-- Connecting Line -->
+<div class="absolute left-6 top-8 bottom-8 w-px bg-border-subtle"></div>
+<!-- Step 1 -->
+<div class="flex gap-6 relative">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-title-md text-title-md shrink-0 z-10 shadow-sm border border-border-subtle">1</div>
+<div class="flex flex-col gap-2 pt-2">
+<h4 class="font-title-md text-title-md text-primary">Akses &amp; Verifikasi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Masuk menggunakan Nomor Pokok Wajib Pajak (NPWP) dan kata sandi Anda. Sistem akan memverifikasi identitas Anda dengan aman.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-6 relative">
+<div class="w-12 h-12 rounded-full bg-surface-white text-primary flex items-center justify-center font-title-md text-title-md shrink-0 z-10 border border-border-subtle">2</div>
+<div class="flex flex-col gap-2 pt-2">
+<h4 class="font-title-md text-title-md text-primary">Tinjau Data Pra-isi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sistem menampilkan draf laporan tahunan berdasarkan data potong pajak dari instansi terkait. Periksa kesesuaiannya.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-6 relative">
+<div class="w-12 h-12 rounded-full bg-surface-white text-primary flex items-center justify-center font-title-md text-title-md shrink-0 z-10 border border-border-subtle">3</div>
+<div class="flex flex-col gap-2 pt-2">
+<h4 class="font-title-md text-title-md text-primary">Finalisasi &amp; Kirim</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lakukan persetujuan akhir. Dapatkan Bukti Penerimaan Elektronik (BPE) langsung ke kotak masuk email Anda.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 w-full aspect-square rounded-xl overflow-hidden border border-border-subtle relative bg-surface-container-lowest shadow-sm">
+<!-- Abstract representation of the UI dashboard for visual interest -->
+<div class="absolute inset-4 border border-border-subtle rounded-lg p-4 bg-surface flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-border-subtle pb-4">
+<div class="w-32 h-4 bg-surface-container rounded"></div>
+<div class="w-8 h-8 rounded-full bg-primary-container/10"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-24 rounded border border-border-subtle bg-surface-white p-3 flex flex-col gap-2">
+<div class="w-16 h-3 bg-surface-container rounded"></div>
+<div class="w-24 h-6 bg-primary/10 rounded mt-auto"></div>
+</div>
+<div class="h-24 rounded border border-border-subtle bg-surface-white p-3 flex flex-col gap-2">
+<div class="w-16 h-3 bg-surface-container rounded"></div>
+<div class="w-24 h-6 bg-secondary/10 rounded mt-auto"></div>
+</div>
+</div>
+<div class="flex-1 rounded border border-border-subtle bg-surface-white p-4">
+<div class="w-full h-4 bg-surface-container rounded mb-4"></div>
+<div class="w-full h-8 bg-surface-container-low rounded mb-2"></div>
+<div class="w-full h-8 bg-surface-container-low rounded mb-2"></div>
+<div class="w-3/4 h-8 bg-surface-container-low rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container w-full py-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-4 full-width bottom-0 flat no shadows">
+<div class="font-title-md text-title-md text-on-primary font-bold">SIAP Pajak</div>
+<div class="flex flex-wrap justify-center gap-6 mt-4">
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Kebijakan Privasi</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Syarat &amp; Ketentuan</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Peta Situs</a>
+<a class="font-body-sm text-body-sm text-surface-variant opacity-80 hover:text-surface-white hover:underline transition-colors" href="#">Kontak</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-primary opacity-60 mt-8 text-center">
+            © 2024 Direktorat Jenderal Pajak. Republik Indonesia.
+        </div>
+</footer>
+</body></html>

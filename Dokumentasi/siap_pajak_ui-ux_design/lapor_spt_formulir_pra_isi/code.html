@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lapor SPT - SIAP Pajak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "text-main": "#191C1D",
+                        "surface-white": "#FFFFFF",
+                        "error-red": "#BA1A1A",
+                        "tertiary": "#735c00",
+                        "on-secondary-container": "#006f63",
+                        "tertiary-container": "#c6a94e",
+                        "error-container": "#ffdad6",
+                        "border-subtle": "#E9ECEF",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#edeeef",
+                        "on-primary": "#ffffff",
+                        "secondary": "#006b5f",
+                        "on-primary-container": "#7796d1",
+                        "on-surface-variant": "#43474f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c6d1",
+                        "inverse-primary": "#abc7ff",
+                        "primary-container": "#002d62",
+                        "on-tertiary-container": "#4e3e00",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#3e5e95",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#59dbc7",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#005047",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "text-muted": "#43474F",
+                        "on-secondary-fixed": "#00201c",
+                        "outline": "#747781",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#abc7ff",
+                        "primary-fixed": "#d7e2ff",
+                        "secondary-fixed": "#79f7e3",
+                        "tertiary-fixed": "#ffe085",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#e3c466",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary-fixed": "#001b3f",
+                        "primary": "#00193c",
+                        "inverse-surface": "#2e3132",
+                        "on-surface": "#191c1d",
+                        "on-background": "#191c1d",
+                        "on-primary-fixed-variant": "#24467c",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary-container": "#76f4e0",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex font-body-md">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col w-64 bg-surface-white border-r border-border-subtle h-screen fixed left-0 top-0 py-6 z-20 shadow-[0px_4px_12px_rgba(0,45,98,0.08)]">
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-on-primary font-bold text-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary" style="font-size: 1.25rem; line-height: 1.75rem;">SIAP Pajak</h1>
+<p class="font-label-md text-label-md text-on-surface-variant font-normal">Portal Resmi Perpajakan</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a aria-current="page" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container mx-2 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-label-md text-label-md">Lapor SPT</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">Riwayat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+<div class="mt-4 px-2">
+<button class="w-full bg-primary text-on-primary py-2 px-4 rounded font-label-md text-label-md hover:opacity-90 transition-opacity">
+                    Buat Laporan Baru
+                </button>
+</div>
+</nav>
+<div class="mt-auto px-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Bantuan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop bg-surface max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<header class="mb-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Lapor SPT Tahunan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Sistem otomatis pre-fill data Anda. Silakan periksa dan konfirmasi.</p>
+</header>
+<!-- Vertical Stepper (for multi-section tax return) -->
+<div class="flex flex-col md:flex-row gap-8">
+<!-- Stepper Sidebar -->
+<div class="md:w-1/4 shrink-0">
+<div class="sticky top-10 flex flex-col gap-6 relative before:absolute before:inset-y-0 before:left-[11px] before:w-0.5 before:bg-border-subtle">
+<!-- Step 1: Completed -->
+<div class="flex items-start gap-4 relative z-10 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 text-on-primary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">1. Data Identitas</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Data pribadi wajib pajak</p>
+</div>
+</div>
+<!-- Step 2: Active -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-6 h-6 rounded-full bg-surface-white border-2 border-primary flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">2. Penghasilan</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Review data dari pemberi kerja</p>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex items-start gap-4 relative z-10 opacity-50">
+<div class="w-6 h-6 rounded-full bg-surface-white border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface">
+<span class="text-[10px] font-bold text-outline-variant">3</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">3. Potongan Pajak</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">PTKP dan potongan lainnya</p>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="flex items-start gap-4 relative z-10 opacity-50">
+<div class="w-6 h-6 rounded-full bg-surface-white border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5 ring-4 ring-surface">
+<span class="text-[10px] font-bold text-outline-variant">4</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">4. Ringkasan &amp; Konfirmasi</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Finalisasi laporan</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Content Canvas -->
+<div class="md:w-3/4 flex flex-col gap-6">
+<!-- Information Alert -->
+<div class="bg-surface-container-low border border-primary-container/20 rounded-lg p-4 flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary-container shrink-0 mt-0.5">info</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary-container mb-1">Data Pre-fill Tersedia</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Data penghasilan Anda telah otomatis diisi berdasarkan laporan pemotongan pajak (Bukti Potong) dari pemberi kerja Anda. Silakan verifikasi kebenarannya.</p>
+</div>
+</div>
+<!-- Bento Grid for Income Data -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Main Employer Card -->
+<div class="bg-surface-white border border-border-subtle rounded-lg p-6 md:col-span-2">
+<div class="flex justify-between items-center mb-6 border-b border-border-subtle pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-text-main">PT. Teknologi Nusantara</h3>
+<p class="font-body-sm text-body-sm text-text-muted">Pemberi Kerja Utama • NPWP: 01.234.567.8-091.000</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Terverifikasi</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Penghasilan Bruto</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md">Rp</span>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-subtle rounded-md bg-surface-container-low text-text-main font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-shadow" disabled="" type="text" value="245.000.000"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Pengurang Penghasilan</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md">Rp</span>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-subtle rounded-md bg-surface-container-low text-text-main font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-shadow" disabled="" type="text" value="12.250.000"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Penghasilan Neto</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md text-body-md font-bold">Rp</span>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-subtle rounded-md bg-primary-container/5 text-primary font-bold font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-shadow" disabled="" type="text" value="232.750.000"/>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3 pt-4 border-t border-border-subtle">
+<button class="px-4 py-2 border border-outline text-text-main font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                Koreksi Data
+                            </button>
+</div>
+</div>
+<!-- Add Income Card (Glassmorphism-lite empty state) -->
+<div class="bg-surface-white border border-dashed border-outline-variant rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-surface-container-low cursor-pointer transition-colors md:col-span-2 md:h-32">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary mb-3">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-1">Tambah Penghasilan Lainnya</h4>
+<p class="font-body-sm text-body-sm text-text-muted">Jika Anda memiliki sumber penghasilan lain selain dari pemberi kerja utama.</p>
+</div>
+</div>
+<!-- Summary Callout -->
+<div class="bg-primary text-on-primary p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
+<!-- Subtle geometric accent -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-surface-white opacity-10 rotate-45 pointer-events-none"></div>
+<div class="relative z-10">
+<p class="font-label-md text-label-md text-on-primary/80 mb-1">Total Penghasilan Neto</p>
+<h2 class="font-display-lg text-display-lg">Rp 232.750.000</h2>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<button class="w-full md:w-auto px-8 py-3 bg-secondary text-on-secondary font-label-md text-label-md font-bold rounded shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                            Simpan &amp; Lanjutkan
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

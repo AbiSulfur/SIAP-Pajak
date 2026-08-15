@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manajemen Data Wajib Pajak - SIAP Pajak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "secondary-container": "#8cf3f3",
+                        "primary": "#00193c",
+                        "on-secondary-container": "#007070",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#735c00",
+                        "primary-container": "#002d62",
+                        "on-tertiary-fixed": "#241a00",
+                        "outline-variant": "#c4c6d1",
+                        "surface-bright": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#7796d1",
+                        "on-surface-variant": "#43474f",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "tertiary-container": "#cca730",
+                        "inverse-primary": "#abc7ff",
+                        "outline": "#747781",
+                        "on-secondary-fixed": "#002020",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#8cf3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#3e5e95",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#24467c",
+                        "on-primary-fixed": "#001b3f",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#d7e2ff",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffe088",
+                        "on-tertiary-container": "#4f3e00",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "secondary-fixed-dim": "#6fd7d6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006a6a",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface-container-lowest z-20 flex flex-col h-full py-base">
+<!-- Header -->
+<div class="px-6 py-6 border-b border-outline-variant mb-4">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">SIAP Pajak</h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1 uppercase">Admin Dashboard</p>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 px-4 space-y-2 overflow-y-auto">
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-body-md text-body-md font-medium">Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-transform active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+<span class="font-body-md text-body-md">User Management</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:text-primary transition-colors">fact_check</span>
+<span class="font-body-md text-body-md font-medium">Report Validation</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 active:scale-95 transition-transform rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:text-primary transition-colors">settings</span>
+<span class="font-body-md text-body-md font-medium">System Settings</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="px-4 py-4 border-t border-outline-variant mt-auto">
+<a class="flex items-center px-4 py-3 text-error hover:bg-error-container transition-colors duration-200 active:scale-95 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-4">logout</span>
+<span class="font-body-md text-body-md font-medium">Log Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 border-b border-outline-variant bg-surface-container-lowest z-10 flex items-center justify-between px-margin-desktop w-full pr-[calc(16rem+40px)]">
+<div class="flex items-center">
+<h2 class="font-title-md text-title-md text-primary font-semibold">SIAP Pajak Admin</h2>
+</div>
+<div class="flex items-center space-x-6">
+<!-- Search (on_left as per JSON, but contextually placed near actions in header) -->
+<div class="relative hidden md:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Quick Search..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-2">
+<button aria-label="notifications" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="help" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button aria-label="apps" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">apps</span>
+</button>
+</div>
+<!-- Profile -->
+<div class="flex items-center space-x-3 pl-4 border-l border-outline-variant">
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of an Indonesian government administrator. The lighting is bright and clean, typical of a modern office environment. The background is a soft, neutral blur. The overall aesthetic is trustworthy, authoritative, and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHlGKd0opbj6-YB6jc22Y9P6tijCyVCtZ_r7v-G748OlunX0WKQuRca28abVjk04knEjzfDgqMIFs5-bRIZ9_YonjuqdpgpZwBrCvzyZwup4l2xUo_t-t0xwBZWLeK5CCZA7b8gah8uvtmS4qU1p3oh8__3jbJVgcedZy55-ebW57oh-DgPNbI8FZrpXBsox8x20XSnlc79h_O2MFz5deISKc5_6zNfKxt3lGoqpQqA6f4ozZrlEuO6Q"/>
+<div class="hidden lg:block">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Admin Pusat</p>
+<p class="text-xs text-on-surface-variant">Direktorat Jenderal Pajak</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 p-margin-desktop overflow-y-auto bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto space-y-8">
+<!-- Page Header -->
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Manajemen Data Wajib Pajak</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Kelola informasi, status, dan akses Wajib Pajak terdaftar dalam sistem SIAP Pajak.</p>
+</div>
+<!-- Bento Grid for Filters and Quick Stats (Breaking Standard List Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Advanced Filter Card (Span 8) -->
+<div class="lg:col-span-8 bg-surface-bright border border-outline-variant rounded-xl p-6 shadow-sm">
+<h3 class="font-title-md text-title-md text-on-surface mb-4 flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary">filter_list</span>
+                            Filter Pencarian
+                        </h3>
+<form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Nomor Pokok Wajib Pajak (NPWP)</label>
+<input class="w-full px-3 py-2 border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Masukkan 15/16 digit NPWP" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Nama Wajib Pajak</label>
+<input class="w-full px-3 py-2 border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Ketik nama entitas/pribadi" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Jenis Wajib Pajak</label>
+<select class="w-full px-3 py-2 border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-surface-container-lowest text-on-surface">
+<option value="">Semua Jenis</option>
+<option value="op">Orang Pribadi (OP)</option>
+<option value="badan">Badan</option>
+<option value="bendahara">Bendahara</option>
+</select>
+</div>
+<div class="md:col-span-3 flex justify-end space-x-3 mt-2">
+<button class="px-4 py-2 border border-outline rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors" type="reset">Reset</button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm" type="submit">Terapkan Filter</button>
+</div>
+</form>
+</div>
+<!-- Quick Actions / Context Card (Span 4) -->
+<div class="lg:col-span-4 bg-primary text-on-primary border border-primary-container rounded-xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-6 -top-6 w-32 h-32 bg-primary-container rounded-full opacity-50 pointer-events-none"></div>
+<div class="relative z-10">
+<h3 class="font-title-md text-title-md mb-2">Tambah Wajib Pajak</h3>
+<p class="font-body-sm text-body-sm text-inverse-primary mb-6">Registrasi manual Wajib Pajak baru ke dalam basis data SIAP Pajak.</p>
+</div>
+<button class="relative z-10 w-full py-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold hover:brightness-105 transition-all active:scale-[0.98] flex justify-center items-center">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                            Registrasi Baru
+                        </button>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">NPWP</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Nama Lengkap</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Jenis WP</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status Akun</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Terakhir Login</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="border-b border-surface-container-high hover:bg-surface-container-lowest transition-colors group">
+<td class="px-6 py-4 font-medium text-on-surface">01.234.567.8-901.000</td>
+<td class="px-6 py-4 text-on-surface">PT MAJU JAYA BERSAMA</td>
+<td class="px-6 py-4 text-on-surface-variant">Badan</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6f4ea] text-[#137333] border border-[#ceead6]">
+                                            Aktif
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">12 Okt 2023, 08:45 WIB</td>
+<td class="px-6 py-4 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Detail">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low border-b border-surface-container-high hover:bg-surface-container-lowest transition-colors group">
+<td class="px-6 py-4 font-medium text-on-surface">98.765.432.1-123.000</td>
+<td class="px-6 py-4 text-on-surface">BUDI SANTOSO</td>
+<td class="px-6 py-4 text-on-surface-variant">Orang Pribadi</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6f4ea] text-[#137333] border border-[#ceead6]">
+                                            Aktif
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Okt 2023, 14:20 WIB</td>
+<td class="px-6 py-4 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Detail">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-surface-container-high hover:bg-surface-container-lowest transition-colors group">
+<td class="px-6 py-4 font-medium text-on-surface">45.678.901.2-345.000</td>
+<td class="px-6 py-4 text-on-surface">CV KARYA CIPTA</td>
+<td class="px-6 py-4 text-on-surface-variant">Badan</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error-container text-on-error-container border border-[#f8b4b4]">
+                                            Non-Aktif
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">01 Sep 2023, 09:15 WIB</td>
+<td class="px-6 py-4 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Detail">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-low border-b border-surface-container-high hover:bg-surface-container-lowest transition-colors group">
+<td class="px-6 py-4 font-medium text-on-surface">11.222.333.4-555.000</td>
+<td class="px-6 py-4 text-on-surface">DINAS PENDIDIKAN KOTA</td>
+<td class="px-6 py-4 text-on-surface-variant">Bendahara</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6f4ea] text-[#137333] border border-[#ceead6]">
+                                            Aktif
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">12 Okt 2023, 11:30 WIB</td>
+<td class="px-6 py-4 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Detail">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-surface-container-high hover:bg-surface-container-lowest transition-colors group">
+<td class="px-6 py-4 font-medium text-on-surface">55.666.777.8-999.000</td>
+<td class="px-6 py-4 text-on-surface">SITI AMINAH</td>
+<td class="px-6 py-4 text-on-surface-variant">Orang Pribadi</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6f4ea] text-[#137333] border border-[#ceead6]">
+                                            Aktif
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">11 Okt 2023, 16:45 WIB</td>
+<td class="px-6 py-4 text-right space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Detail">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-surface px-6 py-4 border-t border-outline-variant flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                            Menampilkan <span class="font-medium text-on-surface">1</span> hingga <span class="font-medium text-on-surface">5</span> dari <span class="font-medium text-on-surface">1,240</span> Wajib Pajak
+                        </div>
+<div class="flex items-center space-x-2">
+<button class="p-1 border border-outline-variant rounded hover:bg-surface-container-high text-on-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center border border-primary bg-primary-container text-on-primary-container rounded font-body-sm text-body-sm font-medium">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:bg-surface-container-high text-on-surface-variant rounded font-body-sm text-body-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:bg-surface-container-high text-on-surface-variant rounded font-body-sm text-body-sm">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:bg-surface-container-high text-on-surface-variant rounded font-body-sm text-body-sm">124</button>
+<button class="p-1 border border-outline-variant rounded hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
