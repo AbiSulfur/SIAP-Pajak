@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::view('/', 'welcome')->name('welcome');
-
+Route::view('/tentang-kami', 'guest.tentang-kami')->name('tentang-kami');
+Route::view('/layanan', 'guest.layanan')->name('layanan');
+Route::view('/bantuan', 'guest.bantuan')->name('bantuan');
 // Rute untuk Wajib Pajak
 Route::middleware(['auth', 'verified', 'role:wajib_pajak'])->prefix('wajib-pajak')->name('wajib-pajak.')->group(function () {
     Route::get('/dashboard', function () {
