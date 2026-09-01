@@ -1,3 +1,123 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    html {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Tabular figures for currency/numbers */
+    .font-tabular {
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+@layer components {
+    /* Material Symbols default settings */
+    .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined', sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+    }
+
+    .material-symbols-outlined.filled {
+        font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+    }
+
+    /* Sidebar active state */
+    .sidebar-link {
+        @apply flex items-center gap-3 px-4 py-3 rounded text-body-sm text-on-surface-variant hover:bg-surface-container-low transition-colors;
+    }
+
+    .sidebar-link.active {
+        @apply bg-primary-container text-on-primary font-semibold;
+    }
+
+    /* Status Chips — Pastel-on-Dark approach */
+    .chip {
+        @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-label-md font-semibold;
+    }
+
+    .chip-success {
+        @apply bg-secondary-fixed text-on-secondary-fixed-variant;
+    }
+
+    .chip-warning {
+        @apply bg-tertiary-fixed text-on-tertiary-fixed-variant;
+    }
+
+    .chip-error {
+        @apply bg-error-container text-on-error-container;
+    }
+
+    .chip-info {
+        @apply bg-primary-fixed text-on-primary-fixed-variant;
+    }
+
+    .chip-neutral {
+        @apply bg-surface-container-high text-on-surface-variant;
+    }
+
+    /* Data table styling */
+    .data-table {
+        @apply w-full text-body-sm;
+    }
+
+    .data-table thead th {
+        @apply text-label-md uppercase tracking-wider text-on-surface-variant bg-surface-container-low px-4 py-3 text-left font-semibold;
+    }
+
+    .data-table tbody td {
+        @apply px-4 py-3 border-b border-border-subtle;
+    }
+
+    .data-table tbody tr:hover {
+        @apply bg-surface-container-low;
+    }
+
+    /* Card component */
+    .card {
+        @apply bg-surface-white border border-border-subtle rounded-lg p-6;
+    }
+
+    /* Form input — Institutional style */
+    .input-field {
+        @apply block w-full px-3 py-3 border border-border-subtle rounded bg-surface-white text-text-main text-body-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors;
+    }
+
+    /* Primary button */
+    .btn-primary {
+        @apply bg-primary hover:bg-primary-container text-on-primary font-semibold py-3 px-6 rounded transition-colors inline-flex items-center justify-center gap-2;
+    }
+
+    /* Secondary button (outlined) */
+    .btn-secondary {
+        @apply border border-primary text-primary hover:bg-surface-container-low font-semibold py-3 px-6 rounded transition-colors inline-flex items-center justify-center gap-2;
+    }
+
+    /* Teal / success button */
+    .btn-teal {
+        @apply bg-secondary hover:bg-on-secondary-container text-on-secondary font-semibold py-3 px-6 rounded transition-colors inline-flex items-center justify-center gap-2;
+    }
+}

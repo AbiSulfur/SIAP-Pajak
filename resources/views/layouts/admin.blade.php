@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ $title ?? 'Dashboard' }} - SIAP Pajak</title>
+        <title>{{ $title ?? 'Admin Dashboard' }} - SIAP Pajak</title>
         <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpg') }}">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,16 +19,16 @@
     <body class="font-sans antialiased bg-surface text-text-main">
         <div class="min-h-screen flex">
             <!-- Sidebar -->
-            <x-sidebar-wp :active="$sidebarActive ?? ''" />
+            <x-sidebar-admin :active="$sidebarActive ?? ''" />
 
             <!-- Main Content -->
-            <div class="flex-1 ml-60">
-                <main class="p-8">
+            <div class="flex-1 ml-60 flex flex-col min-h-screen">
+                <!-- Top Bar -->
+                <x-top-bar-admin />
+
+                <main class="flex-1 p-8">
                     {{ $slot }}
                 </main>
-
-                <!-- Footer -->
-                <x-footer />
             </div>
         </div>
     </body>
